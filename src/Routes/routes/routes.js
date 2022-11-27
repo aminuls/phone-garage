@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layouts/Main/Main";
 import Error from "../../pages/Error/Error";
-import Home from "../../pages/Home/Home";
+import Home from "../../pages/Home/Home/Home";
 export const router = createBrowserRouter([
    {
       path: "/",
