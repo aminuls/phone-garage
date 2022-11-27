@@ -26,7 +26,7 @@ const images = [
       description: (
          <>
             <div className="absolute top-0 right-0">$999 only</div>
-            <button className="btn btn-outline text-white rounded-md">Buy Now</button>
+            <button className="btn btn-outline text-white btn-primary rounded-md">Buy Now</button>
          </>
       ),
    },

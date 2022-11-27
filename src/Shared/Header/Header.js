@@ -10,6 +10,26 @@ const Header = () => {
                Home
             </Link>
          </li>
+
+         <li>
+            <div tabIndex="0" className="dropdown dropdown-bottom dropdown-end rounded-md active:bg-[#1f29371a] active:text-black">
+               <label className="flex gap-1 items-center">
+                  All Categories
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>
+               </label>
+               <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                  <li>
+                     <Link to="/">Category 1</Link>
+                  </li>
+                  <li>
+                     <Link to="/">Category 2</Link>
+                  </li>
+               </ul>
+            </div>
+         </li>
+
          <li>
             <Link to="/login" className="rounded-md">
                Log in
@@ -35,7 +55,7 @@ const Header = () => {
                <div className="flex items-center gap-1">
                   <div className="dropdown dropdown-bottom flex justify-end">
                      <label tabIndex={0} className="btn btn-ghost lg:hidden px-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
                         </svg>
                      </label>
