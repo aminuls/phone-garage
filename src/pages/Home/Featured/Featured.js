@@ -73,6 +73,39 @@ const Featured = () => {
                <div>
                   <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
                </div>
+               <div>
+                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
+               </div>
+               <div>
+                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
+               </div>
+               <div>
+                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
+               </div>
+               <div>
+                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
+               </div>
+               <div>
+                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
+               </div>
+               <div>
+                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
+               </div>
+               <div>
+                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
+               </div>
+               <div>
+                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
+               </div>
+               <div>
+                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
+               </div>
+               <div>
+                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
+               </div>
+               <div>
+                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
+               </div>
             </Carousel>
          </div>
       </div>
