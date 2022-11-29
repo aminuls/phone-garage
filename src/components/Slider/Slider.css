@@ -1,6 +1,6 @@
 .image-gallery {
    width: 100%;
-   height: auto;
+   height: 100%;
 }
 @media (min-width: 640px) {
    .image-gallery {
@@ -14,7 +14,7 @@
 }
 .image-gallery-slide img {
    width: 100%;
-   height: auto;
+   height: calc(200px + 25vmin);
    max-height: 80vh;
    object-fit: cover;
    overflow: hidden;

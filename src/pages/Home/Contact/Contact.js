@@ -6,10 +6,10 @@ const Contact = () => {
    };
    return (
       <section>
-         <div className="hero mt-24 py-12">
-            <form onSubmit={handleSubmit} className="hero-content flex-col px-8 py-0 w-full">
+         <div className="hero py-20">
+            <form onSubmit={handleSubmit} className="hero-content flex-col px-2 sm:px-8 py-0 w-full">
                <div className="text-center mb-3">
-                  <p className="text-4xl mb-2">Contact Us</p>
+                  <p className="text-4xl mb-2">Contact us</p>
                   <h2 className="text-2xl">Stay connected with us</h2>
                </div>
                <div className="card w-full lg:w-1/3">

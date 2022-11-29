@@ -1,8 +1,9 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
-const Featured = () => {
+import CategoryCard from "../../../components/CategoryCard/CategoryCard";
+const  Featured = () => {
    return (
-      <div className="px-2 mt-16">
+      <div className="px-2 mt-20">
          <div>
             <h2 className="text-4xl text-center mb-6">Featured Product</h2>
          </div>
@@ -10,16 +11,16 @@ const Featured = () => {
             <Carousel
                additionalTransfrom={0}
                arrows
+               autoPlay
                autoPlaySpeed={2000}
-               autoPlay={true}
                centerMode={false}
                className=""
-               containerClass="container-with-dots rounded-md"
-               itemClass="mx-2"
+               containerClass="container-with-dots"
                dotListClass=""
                draggable
                focusOnSelect={false}
                infinite
+               itemClass="px-2"
                keyBoardControl
                minimumTouchDrag={80}
                pauseOnHover
@@ -57,55 +58,20 @@ const Featured = () => {
                rtl={false}
                shouldResetAutoplay
                showDots={false}
-               sliderClass="rounded-lg"
+               sliderClass=""
                slidesToSlide={1}
                swipeable
             >
-               <div>
-                  <img src="https://picsum.photos/id/1015/1000/600/" className="rounded-md" alt="" />
-               </div>
-               <div>
-                  <img src="https://picsum.photos/id/1016/1000/600/" className="rounded-md" alt="" />
-               </div>
-               <div>
-                  <img src="https://picsum.photos/id/1018/1000/600/" className="rounded-md" alt="" />
-               </div>
-               <div>
-                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
-               </div>
-               <div>
-                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
-               </div>
-               <div>
-                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
-               </div>
-               <div>
-                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
-               </div>
-               <div>
-                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
-               </div>
-               <div>
-                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
-               </div>
-               <div>
-                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
-               </div>
-               <div>
-                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
-               </div>
-               <div>
-                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
-               </div>
-               <div>
-                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
-               </div>
-               <div>
-                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
-               </div>
-               <div>
-                  <img src="https://picsum.photos/id/1019/1000/600/" className="rounded-md" alt="" />
-               </div>
+               <CategoryCard></CategoryCard>
+               <CategoryCard></CategoryCard>
+               <CategoryCard></CategoryCard>
+               <CategoryCard></CategoryCard>
+               <CategoryCard></CategoryCard>
+               <CategoryCard></CategoryCard>
+               <CategoryCard></CategoryCard>
+               <CategoryCard></CategoryCard>
+               <CategoryCard></CategoryCard>
+               <CategoryCard></CategoryCard>
             </Carousel>
          </div>
       </div>

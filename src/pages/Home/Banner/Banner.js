@@ -4,7 +4,7 @@ import mobile from "../../../assets/images/banner.jpg";
 const Banner = () => {
    return (
       <div className="mt-6 mx-2">
-         <div className="hero pb-14">
+         <div className="hero pb-20">
             <div className="hero-content flex-col lg:flex-row-reverse w-full p-0 lg:p-4 lg:gap-14">
                <img src={mobile} className="lg:w-1/2 rounded-lg shadow-2xl -skew-x-3 lg:-skew-x-6 transform lg:-translate-x-5 hover:-skew-x-0 transition-transform" alt="images" />
                <div className="sm:px-4 lg:px-0 mt-0">

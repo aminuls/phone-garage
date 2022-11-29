@@ -1,13 +1,19 @@
 import React from "react";
 import ImageGallery from "react-image-gallery";
 import "./Slider.css";
+import phone from "../../assets/images/Apple iPhone 11 Pro Max.png";
 
+// All image will be 10:6
 const images = [
    {
-      original: "https://picsum.photos/id/1018/1000/600/",
+      original: phone,
       description: (
          <>
-            <div className="absolute top-0 right-0">$999 only</div>
+            <div className="absolute m-2 top-0 right-0 h-20 w-20 rounded-full border-2 border-dashed border-slate-300 flex justify-center items-center">
+               <p className="text-lg leading-5 font-bold">
+                  $1470 <span className="text-sm font-normal">only</span>
+               </p>
+            </div>
             <button className="btn btn-outline text-white rounded-md">Buy Now</button>
          </>
       ),
@@ -16,7 +22,11 @@ const images = [
       original: "https://picsum.photos/id/1015/1000/600/",
       description: (
          <>
-            <div className="absolute top-0 right-0">$999 only</div>
+            <div className="absolute m-2 top-0 right-0 h-20 w-20 rounded-full border-2 border-dashed border-slate-300 flex justify-center items-center">
+               <p className="text-lg leading-5 font-bold">
+                  $1470 <span className="text-sm font-normal">only</span>
+               </p>
+            </div>
             <button className="btn btn-outline text-white rounded-md">Buy Now</button>
          </>
       ),
@@ -25,8 +35,12 @@ const images = [
       original: "https://picsum.photos/id/1019/1000/600/",
       description: (
          <>
-            <div className="absolute top-0 right-0">$999 only</div>
-            <button className="btn btn-outline text-white btn-primary rounded-md">Buy Now</button>
+            <div className="absolute m-2 top-0 right-0 h-20 w-20 rounded-full border-2 border-dashed border-slate-300 flex justify-center items-center">
+               <p className="text-lg leading-5 font-bold">
+                  $1470 <span className="text-sm font-normal">only</span>
+               </p>
+            </div>
+            <button className="btn btn-outline text-white rounded-md">Buy Now</button>
          </>
       ),
    },
