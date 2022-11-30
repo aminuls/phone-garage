@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo1 from "../../assets/images/logo.png";
 
 const Header = () => {
+   const [categories, setCategories] = useState([]);
+   useEffect(() => {
+      fetch("http://localhost:5000/category")
+         .then((res) => res.json())
+         .then((result) => setCategories(result));
+   }, []);
    const menuItems = (
       <>
          <li>
@@ -19,21 +25,11 @@ const Header = () => {
                   </svg>
                </label>
                <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                  <li>
-                     <Link to="/category/Apple">Apple</Link>
-                  </li>
-                  <li>
-                     <Link to="/category/Xiaomi">Xiaomi</Link>
-                  </li>
-                  <li>
-                     <Link to="/category/One Plus">One plus</Link>
-                  </li>
-                  <li>
-                     <Link to="/category/Samsung">Samsung</Link>
-                  </li>
-                  <li>
-                     <Link to="/category/Nokia">Nokia</Link>
-                  </li>
+                  {categories.map((category) => (
+                     <li key={category._id}>
+                        <Link to={`/category/${category.category}`}>{category.category}</Link>
+                     </li>
+                  ))}
                </ul>
             </div>
          </li>

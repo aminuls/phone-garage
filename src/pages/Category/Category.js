@@ -15,7 +15,7 @@ const Category = () => {
          </div>
          <div className="grid grid-cols-1 sm:grid-cols-2 mx-2 lg:grid-cols-3 gap-5">
             {products.map((product) => {
-               return <CategoryCard product={product}></CategoryCard>;
+               return <CategoryCard key={product._id} product={product}></CategoryCard>;
             })}
          </div>
       </div>

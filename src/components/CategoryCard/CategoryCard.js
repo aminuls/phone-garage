@@ -1,17 +1,17 @@
 import React, { useState } from "react";
+import Modal from "../Modal/Modal";
 
 const CategoryCard = ({ product }) => {
-   
-   // const date = new Date(); 
+   // const date = new Date();
    /* <h2>Posted: {format(date, "PP")}</h2> */
-   // database e store korar somoy use korte hobe 
-   
-   
+   // database e store korar somoy use korte hobe
+
    const [wishlisted, setWishlisted] = useState(false);
    const [reported, setReported] = useState(false);
-
+   const [open, setOpen] = useState(false);
    return (
       <>
+         <Modal open={open} setOpen={setOpen}></Modal>
          <div className="card w-full glass">
             <div className="flex w-full justify-end px-3 pt-3 pb-2 gap-3">
                <button className="cursor-pointer text-error" onClick={() => setReported(!reported)}>
@@ -79,7 +79,7 @@ const CategoryCard = ({ product }) => {
                   </h2>
                </div>
                <div className="flex col-span-5 items-center">
-                  <button className="btn btn-error w-full flex gap-1 px-2">
+                  <button onClick={() => setOpen(true)} className="btn btn-error w-full flex gap-1 px-2">
                      <span className="pl-4">Purchase</span>
                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 sm:hidden md:block">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />

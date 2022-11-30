@@ -15,18 +15,18 @@ const Contact = () => {
                <div className="card w-full lg:w-1/3">
                   <div className="card-body p-0">
                      <div className="form-control">
-                        <input type="text" placeholder="Email Address" className="input input-bordered" />
+                        <input type="text" placeholder="Email Address" className="input input-bordered rounded-md" />
                      </div>
                      <div className="form-control">
-                        <input type="text" placeholder="Subject" className="input input-bordered" />
+                        <input type="text" placeholder="Subject" className="input input-bordered rounded-md" />
                      </div>
                      <div className="form-control">
-                        <textarea rows="4" className="textarea textarea-bordered text-base" placeholder="Type Your Message"></textarea>
+                        <textarea rows="4" className="textarea textarea-bordered text-base rounded-md" placeholder="Type Your Message"></textarea>
                      </div>
                   </div>
                </div>
                <div className="form-control">
-                  <button className="btn btn-primary">Submit</button>
+                  <button className="btn btn-primary px-10 rounded-md">Submit</button>
                </div>
             </form>
          </div>

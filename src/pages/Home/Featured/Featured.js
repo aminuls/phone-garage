@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import CategoryCard from "../../../components/CategoryCard/CategoryCard";
-const  Featured = () => {
+const Featured = () => {
+   const [products, setProducts] = useState([]);
+   useEffect(() => {
+      fetch("http://localhost:5000/featured")
+         .then((res) => res.json())
+         .then((data) => setProducts(data));
+   }, []);
    return (
       <div className="px-2 mt-20">
          <div>
@@ -62,16 +68,9 @@ const  Featured = () => {
                slidesToSlide={1}
                swipeable
             >
-               <CategoryCard></CategoryCard>
-               <CategoryCard></CategoryCard>
-               <CategoryCard></CategoryCard>
-               <CategoryCard></CategoryCard>
-               <CategoryCard></CategoryCard>
-               <CategoryCard></CategoryCard>
-               <CategoryCard></CategoryCard>
-               <CategoryCard></CategoryCard>
-               <CategoryCard></CategoryCard>
-               <CategoryCard></CategoryCard>
+               {products.map((product) => (
+                  <CategoryCard key={product._id} product={product}></CategoryCard>
+               ))}
             </Carousel>
          </div>
       </div>

@@ -1,11 +1,24 @@
 import React from "react";
 import Slider from "../../../components/Slider/Slider";
+import { useQuery } from "@tanstack/react-query";
 
 const Advertise = () => {
+   const { data:advertise, isLoading, refetch } = useQuery({
+      queryKey: [],
+      queryFn: async () => {
+         const res = await fetch("http://localhost:5000/advertise");
+         const data = await res.json();
+         return data;
+      },
+   });
+   if(isLoading){
+      return;
+   }
+   // console.log(data);
    return (
       <div className="grid grid-cols-1 lg:grid-cols-2 place-items-start lg:place-items-center gap-4 lg:gap-16">
          <div className="flex justify-center mx-2">
-            <Slider></Slider>
+            <Slider advertise={advertise}></Slider>
          </div>
          <div className="flex flex-col gap-4 justify-center pl-2 sm:mx-4">
             <h2 className="leading-[3.5rem] font-bold" style={{ fontSize: "calc(10px + 6vmin)", lineHeight: "calc(10px + 8vmin)" }}>
