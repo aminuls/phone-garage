@@ -1,9 +1,10 @@
 import React from "react";
 import Slider from "../../../components/Slider/Slider";
 import { useQuery } from "@tanstack/react-query";
+import Loading from "../../../Shared/Loading/Loading";
 
 const Advertise = () => {
-   const { data:advertise, isLoading, refetch } = useQuery({
+   const { data: advertise, isLoading } = useQuery({
       queryKey: [],
       queryFn: async () => {
          const res = await fetch("http://localhost:5000/advertise");
@@ -11,8 +12,8 @@ const Advertise = () => {
          return data;
       },
    });
-   if(isLoading){
-      return;
+   if (isLoading) {
+      return <Loading></Loading>;
    }
    // console.log(data);
    return (

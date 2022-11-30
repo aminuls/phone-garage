@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Modal from "../Modal/Modal";
+import { Dialog } from "@headlessui/react";
+// import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 
 const CategoryCard = ({ product }) => {
    // const date = new Date();
@@ -9,9 +11,73 @@ const CategoryCard = ({ product }) => {
    const [wishlisted, setWishlisted] = useState(false);
    const [reported, setReported] = useState(false);
    const [open, setOpen] = useState(false);
+   const submitButtonRef = useRef(null);
+   const handleSubmit = () => {
+      // code goes here
+      setOpen(false);
+   };
+   const modalBody = (
+      <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+         <form onSubmit={handleSubmit}>
+            <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+               {/*  */}
+               <div>
+                  <div className="mt-3 text-center sm:mt-0 sm:text-left">
+                     {/* <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                  <ExclamationTriangleIcon className="h-6 w-6 text-red-600" aria-hidden="true" />
+                  </div> */}
+                     <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
+                        {product?.title}
+                     </Dialog.Title>
+                     <div className="mt-4">
+                        <div className="card">
+                           <div className="card-body p-0">
+                              <div className="form-control">
+                                 <input type="text" placeholder="Name" className="input input-bordered rounded-md" />
+                              </div>
+                              <div className="form-control">
+                                 <input type="email" placeholder="Email Address" className="input input-bordered rounded-md" />
+                              </div>
+                              <div className="form-control">
+                                 <input type="text" placeholder="Price" className="input input-bordered rounded-md" />
+                              </div>
+                              <div className="form-control">
+                                 <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Phone" className="input input-bordered rounded-md" />
+                              </div>
+                              <div className="form-control">
+                                 <input type="text" placeholder="Meeting Location" className="input input-bordered rounded-md" />
+                              </div>
+                              <div className="form-control">
+                                 <textarea rows="4" className="textarea textarea-bordered text-base rounded-md" placeholder="Type Your Message"></textarea>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+               <button
+                  type="submit"
+                  className="inline-flex w-full justify-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm"
+                  ref={submitButtonRef}
+               >
+                  Book
+               </button>
+               <button
+                  type="button"
+                  className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                  onClick={() => setOpen(false)}
+               >
+                  Cancel
+               </button>
+            </div>
+         </form>
+      </Dialog.Panel>
+   );
    return (
       <>
-         <Modal open={open} setOpen={setOpen}></Modal>
+         <Modal open={open} setOpen={setOpen} submitButtonRef={submitButtonRef} modalBody={modalBody}></Modal>
          <div className="card w-full glass">
             <div className="flex w-full justify-end px-3 pt-3 pb-2 gap-3">
                <button className="cursor-pointer text-error" onClick={() => setReported(!reported)}>
@@ -80,7 +146,7 @@ const CategoryCard = ({ product }) => {
                </div>
                <div className="flex col-span-5 items-center">
                   <button onClick={() => setOpen(true)} className="btn btn-error w-full flex gap-1 px-2">
-                     <span className="pl-4">Purchase</span>
+                     <span className="pl-4">Book now</span>
                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 sm:hidden md:block">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                      </svg>

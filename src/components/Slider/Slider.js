@@ -12,13 +12,12 @@ const Slider = ({ advertise }) => {
          original: ad.image,
          description: (
             <>
-               <div className="absolute m-2 top-0 right-0 h-20 w-20 rounded-full border-2 border-dashed border-slate-300 flex justify-center items-center flex-col">
+               <div className="absolute m-2 top-0 right-0 h-20 w-20 rounded-full border-2 border-dashed border-slate-300 flex flex-col justify-center items-center">
                   <p className="text-lg leading-5 font-bold">${ad.resale_price}</p>
                   <p>
                      <span className="text-sm font-normal">only</span>
                   </p>
                </div>
-               <button className="btn btn-outline text-white rounded-md">Buy Now</button>
             </>
          ),
       })

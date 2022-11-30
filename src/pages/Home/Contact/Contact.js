@@ -15,7 +15,7 @@ const Contact = () => {
                <div className="card w-full lg:w-1/3">
                   <div className="card-body p-0">
                      <div className="form-control">
-                        <input type="text" placeholder="Email Address" className="input input-bordered rounded-md" />
+                        <input type="email" placeholder="Email Address" className="input input-bordered rounded-md" />
                      </div>
                      <div className="form-control">
                         <input type="text" placeholder="Subject" className="input input-bordered rounded-md" />

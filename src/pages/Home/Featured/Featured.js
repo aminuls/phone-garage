@@ -1,13 +1,20 @@
-import React, { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import React from "react";
 import Carousel from "react-multi-carousel";
 import CategoryCard from "../../../components/CategoryCard/CategoryCard";
+import Loading from "../../../Shared/Loading/Loading";
 const Featured = () => {
-   const [products, setProducts] = useState([]);
-   useEffect(() => {
-      fetch("http://localhost:5000/featured")
-         .then((res) => res.json())
-         .then((data) => setProducts(data));
-   }, []);
+   const { data: products, isLoading } = useQuery({
+      queryKey: ["category"],
+      queryFn: async () => {
+         const res = await fetch("http://localhost:5000/featured");
+         const data = await res.json();
+         return data;
+      },
+   });
+   if (isLoading) {
+      return <Loading></Loading>;
+   }
    return (
       <div className="px-2 mt-20">
          <div>

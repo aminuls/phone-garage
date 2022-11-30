@@ -1,12 +1,13 @@
 import React from "react";
 import { useLoaderData, useNavigation } from "react-router-dom";
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
+import Loading from "../../Shared/Loading/Loading";
 
 const Category = () => {
    const products = useLoaderData();
    const navigation = useNavigation();
    if (navigation.state === "loading" && navigation.formData == null) {
-      return <p>loading...</p>;
+      return <Loading classes="-mt-32"></Loading>;
    }
    return (
       <div className="max-w-screen-xl mx-auto mt-2 mb-20">
