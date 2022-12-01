@@ -5,7 +5,7 @@ import CategoryCard from "../../../components/CategoryCard/CategoryCard";
 import Loading from "../../../Shared/Loading/Loading";
 const Featured = () => {
    const { data: products, isLoading } = useQuery({
-      queryKey: ["category"],
+      queryKey: ["featured"],
       queryFn: async () => {
          const res = await fetch("http://localhost:5000/featured");
          const data = await res.json();

@@ -1,9 +1,21 @@
-import React, { useEffect, useState } from "react";
+import { Menu, Transition } from "@headlessui/react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo1 from "../../assets/images/logo.png";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
-const Header = () => {
+const Header = ({ isDashboard }) => {
+   function classNames(...classes) {
+      return classes.filter(Boolean).join(" ");
+   }
    const [categories, setCategories] = useState([]);
+   const { user, logOut } = useContext(AuthContext);
+   const handleLogOut = () => {
+      logOut()
+         .then(() => {})
+         .catch((error) => console.log(error));
+   };
    useEffect(() => {
       fetch("http://localhost:5000/category")
          .then((res) => res.json())
@@ -16,34 +28,66 @@ const Header = () => {
                Home
             </Link>
          </li>
-         <li>
-            <div tabIndex="0" className="dropdown dropdown-bottom dropdown-end rounded-md active:bg-[#1f29371a] active:text-black">
-               <label className="flex gap-1 items-end">
+         <Menu as="div" className="relative inline-block text-left">
+            <li>
+               <Menu.Button className="inline-flex w-full justify-start rounded-md">
                   All Categories
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                  </svg>
-               </label>
-               <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                  {categories.map((category) => (
-                     <li key={category._id}>
-                        <Link to={`/category/${category.category}`}>{category.category}</Link>
-                     </li>
-                  ))}
-               </ul>
-            </div>
-         </li>
+                  <ChevronDownIcon className="-mr-1 -ml-2 mt-1 h-6 w-6" aria-hidden="true" />
+               </Menu.Button>
+            </li>
 
-         <li>
-            <Link to="/login" className="rounded-md">
-               Log in
-            </Link>
-         </li>
-         <li>
-            <Link to="/signup" className="rounded-md">
-               Sign up
-            </Link>
-         </li>
+            <Transition
+               as={Fragment}
+               enter="transition ease-out duration-100"
+               enterFrom="transform opacity-0 scale-95"
+               enterTo="transform opacity-100 scale-100"
+               leave="transition ease-in duration-75"
+               leaveFrom="transform opacity-100 scale-100"
+               leaveTo="transform opacity-0 scale-95"
+            >
+               <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <div className="py-1">
+                     {categories.map((category) => (
+                        <Menu.Item key={category._id}>
+                           {({ active }) => (
+                              <Link to={`/category/${category.category}`} className={classNames(active ? "bg-gray-100 text-gray-900" : "text-gray-700", "block px-4 py-2 font-normal")}>
+                                 {category.category}
+                              </Link>
+                           )}
+                        </Menu.Item>
+                     ))}
+                  </div>
+               </Menu.Items>
+            </Transition>
+         </Menu>
+
+         {user?.uid ? (
+            <>
+               <li>
+                  <Link className="rounded-md" to="/dashboard">
+                     Dashboard
+                  </Link>
+               </li>
+               <li>
+                  <button onClick={handleLogOut} className="rounded-md">
+                     Logout
+                  </button>
+               </li>
+            </>
+         ) : (
+            <>
+               <li>
+                  <Link to="/login" className="rounded-md">
+                     Log in
+                  </Link>
+               </li>
+               <li>
+                  <Link to="/signup" className="rounded-md">
+                     Sign up
+                  </Link>
+               </li>
+            </>
+         )}
       </>
    );
    return (
@@ -68,11 +112,13 @@ const Header = () => {
                      </ul>
                   </div>
                   <div>
-                     <label className="btn btn-ghost lg:hidden px-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                           <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
-                        </svg>
-                     </label>
+                     {isDashboard && (
+                        <label tabIndex={0} className="btn btn-ghost lg:hidden px-2" htmlFor="dashboard-drawer">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+                           </svg>
+                        </label>
+                     )}
                   </div>
                </div>
             </div>

@@ -5,7 +5,7 @@ import Loading from "../../../Shared/Loading/Loading";
 
 const Advertise = () => {
    const { data: advertise, isLoading } = useQuery({
-      queryKey: [],
+      queryKey: ["advertise"],
       queryFn: async () => {
          const res = await fetch("http://localhost:5000/advertise");
          const data = await res.json();
