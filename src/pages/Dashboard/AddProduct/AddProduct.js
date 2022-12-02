@@ -46,7 +46,7 @@ const AddProduct = () => {
                   available: true,
                };
                console.log(addingProduct);
-               fetch("http://localhost:5000/users/seller/addproduct", {
+               fetch("https://phone-garage-server-smoky.vercel.app/users/seller/addproduct", {
                   method: "POST",
                   headers: {
                      "content-type": "application/json",

@@ -5,7 +5,7 @@ const MyOrders = () => {
    const [products, setProducts] = useState(null);
    useEffect(() => {
       const fetchFunc = async () => {
-         const res = await axios.get("http://localhost:5000/users/orders");
+         const res = await axios.get("https://phone-garage-server-smoky.vercel.app/users/orders");
          setProducts(res.data);
       };
       fetchFunc();

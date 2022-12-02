@@ -17,7 +17,7 @@ const Header = ({ isDashboard }) => {
          .catch((error) => console.log(error));
    };
    useEffect(() => {
-      fetch("http://localhost:5000/category")
+      fetch("https://phone-garage-server-smoky.vercel.app/category")
          .then((res) => res.json())
          .then((result) => setCategories(result));
    }, []);

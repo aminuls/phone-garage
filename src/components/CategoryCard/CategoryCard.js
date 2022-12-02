@@ -31,7 +31,7 @@ const CategoryCard = ({ product }) => {
          location: data.location,
          message: data.message,
       };
-      fetch("http://localhost:5000/users/orders", {
+      fetch("https://phone-garage-server-smoky.vercel.app/users/orders", {
          method: "POST",
          headers: {
             "content-type": "application/json",

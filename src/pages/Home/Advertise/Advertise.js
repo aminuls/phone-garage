@@ -7,7 +7,7 @@ const Advertise = () => {
    const { data: advertise, isLoading } = useQuery({
       queryKey: ["advertise"],
       queryFn: async () => {
-         const res = await fetch("http://localhost:5000/advertise");
+         const res = await fetch("https://phone-garage-server-smoky.vercel.app/advertise");
          const data = await res.json();
          return data;
       },

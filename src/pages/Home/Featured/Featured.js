@@ -7,7 +7,7 @@ const Featured = () => {
    const { data: products, isLoading } = useQuery({
       queryKey: ["featured"],
       queryFn: async () => {
-         const res = await fetch("http://localhost:5000/featured");
+         const res = await fetch("https://phone-garage-server-smoky.vercel.app/featured");
          const data = await res.json();
          return data;
       },

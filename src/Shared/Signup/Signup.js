@@ -55,9 +55,9 @@ const Signup = () => {
             console.error(error.message);
          });
    };
-   const saveUser = (name, email, role="Buyer") => {
+   const saveUser = (name, email, role = "Buyer") => {
       const user = { name, email, role };
-      fetch("http://localhost:5000/users", {
+      fetch("https://phone-garage-server-smoky.vercel.app/users", {
          method: "POST",
          headers: {
             "content-type": "application/json",
@@ -126,7 +126,9 @@ const Signup = () => {
                      <span className="label-text">Email</span>
                   </label>
                   <select {...register("select")} className="select select-bordered w-full max-w-xs">
-                     <option value="Buyer" selected>Buyer</option>
+                     <option value="Buyer" selected>
+                        Buyer
+                     </option>
                      <option value="Seller">Seller</option>
                   </select>
                </div>

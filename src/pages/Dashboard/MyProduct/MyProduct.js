@@ -16,7 +16,7 @@ const MyProduct = () => {
    } = useQuery({
       queryKey: ["users/seller"],
       queryFn: async () => {
-         const res = await fetch("http://localhost:5000/users/seller", {
+         const res = await fetch("https://phone-garage-server-smoky.vercel.app/users/seller", {
             method: "POST",
             headers: {
                "content-type": "application/json",
@@ -30,7 +30,7 @@ const MyProduct = () => {
    const handleDelete = (id) => {
       const confirmation = window.confirm("Are you sure to Delete it?");
       if (confirmation) {
-         fetch(`http://localhost:5000/users/seller/${id}`, {
+         fetch(`https://phone-garage-server-smoky.vercel.app/users/seller/${id}`, {
             method: "DELETE",
          })
             .then((res) => res.json())
@@ -64,7 +64,7 @@ const MyProduct = () => {
                   <tbody>
                      {products?.map((product) => {
                         const handleAdvertise = (id) => {
-                           fetch(`http://localhost:5000/users/seller/ad/${id}`, {
+                           fetch(`https://phone-garage-server-smoky.vercel.app/users/seller/ad/${id}`, {
                               method: "PUT",
                            })
                               .then((res) => res.json())

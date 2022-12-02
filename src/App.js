@@ -30,7 +30,7 @@ function App() {
    const { user } = useContext(AuthContext);
    const [isAdmin, isAdminLoading] = useAdmin(user?.email);
    const [isSeller, isSellerLoading] = useSeller(user?.email);
-   if(user?.uid){
+   if (user?.uid) {
       if (isAdminLoading || isSellerLoading) {
          return <Loading></Loading>;
       }
@@ -57,7 +57,7 @@ function App() {
                   </PrivetRoute>
                ),
                loader: async ({ params }) => {
-                  return fetch(`http://localhost:5000/category/${params.name}`);
+                  return fetch(`https://phone-garage-server-smoky.vercel.app/category/${params.name}`);
                },
             },
             {
