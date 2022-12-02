@@ -6,7 +6,7 @@ const AllBuyers = () => {
    const { data: buyers, refetch } = useQuery({
       queryKey: ["users/buyers"],
       queryFn: async () => {
-         const res = await fetch("http://localhost:5000/users/buyers");
+         const res = await fetch("https://phone-garage-server-smoky.vercel.app/users/buyers");
          const data = res.json();
          return data;
       },
@@ -14,7 +14,7 @@ const AllBuyers = () => {
    const handleDelete = (id) => {
       const confirmation = window.confirm("Are you sure to Delete it?");
       if (confirmation) {
-         fetch(`http://localhost:5000/users/buyer/${id}`, {
+         fetch(`https://phone-garage-server-smoky.vercel.app/users/buyer/${id}`, {
             method: "DELETE",
          })
             .then((res) => res.json())
