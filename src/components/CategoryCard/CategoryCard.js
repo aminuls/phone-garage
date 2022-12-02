@@ -23,6 +23,7 @@ const CategoryCard = ({ product }) => {
       const bookedProduct = {
          productId: product._id,
          title: product.title,
+         image: product.image,
          price: data.price,
          buyerName: data.name,
          buyerEmail: data.email,
@@ -30,8 +31,16 @@ const CategoryCard = ({ product }) => {
          location: data.location,
          message: data.message,
       };
-
-      console.log(bookedProduct);
+      fetch("http://localhost:5000/users/orders", {
+         method: "POST",
+         headers: {
+            "content-type": "application/json",
+         },
+         body: JSON.stringify(bookedProduct),
+      })
+         .then((res) => res.json())
+         .then((data) => console.log(data));
+      // console.log(bookedProduct);
       reset();
       setOpen(false);
    };
