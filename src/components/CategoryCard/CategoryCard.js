@@ -51,9 +51,6 @@ const CategoryCard = ({ product }) => {
                {/*  */}
                <div>
                   <div className="mt-3 text-center sm:mt-0 sm:text-left">
-                     {/* <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                  <ExclamationTriangleIcon className="h-6 w-6 text-red-600" aria-hidden="true" />
-                  </div> */}
                      <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
                         {product?.title}
                      </Dialog.Title>
@@ -164,7 +161,7 @@ const CategoryCard = ({ product }) => {
                </div>
                <div className="flex flex-col col-span-5 justify-center items-start">
                   <p>{product?.location}</p>
-                  <p>{product?.years_of_use}</p>
+                  <p>{product?.years_of_use} of use</p>
                </div>
                <div className="card-title w-full col-span-12">
                   <h2>{product?.title}</h2>

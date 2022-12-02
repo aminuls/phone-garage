@@ -20,32 +20,32 @@ const DashboardLayout = ({ isDashboard }) => {
             </div>
             <div className="drawer-side">
                <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-               <ul className="menu p-4 w-80 text-base-content bg-base-100 lg:bg-transparent">
+               <ul className="menu py-4 px-6 w-80 text-base-content bg-base-100 lg:bg-transparent">
                   {/* <!-- Sidebar content here --> */}
                   {!isSeller && !isAdmin && (
-                     <li>
+                     <li className="border-0 border-b-2">
                         <Link to="/dashboard">My Orders</Link>
                      </li>
                   )}
                   {isSeller && (
                      <>
-                        <li>
-                           <Link to="/dashboard">My Product</Link>
+                        <li className="border-0 border-b-2">
+                           <Link to="/dashboard">My Products</Link>
                         </li>
-                        <li>
+                        <li className="border-0 border-b-2">
                            <Link to="/dashboard/addproduct">Add a Product</Link>
                         </li>
                      </>
                   )}
                   {isAdmin && (
                      <>
-                        <li>
+                        <li className="border-0 border-b-2">
                            <Link to="/dashboard">All Sellers</Link>
                         </li>
-                        <li>
+                        <li className="border-0 border-b-2">
                            <Link to="/dashboard/allbuyers">All Buyers</Link>
                         </li>
-                        <li>
+                        <li className="border-0 border-b-2">
                            <Link to="/dashboard/reported">Reported Items</Link>
                         </li>
                      </>

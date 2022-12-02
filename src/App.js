@@ -24,6 +24,7 @@ import { AuthContext } from "./context/AuthProvider/AuthProvider";
 import useAdmin from "./hooks/useAdmin";
 import useSeller from "./hooks/useSeller";
 import Loading from "./Shared/Loading/Loading";
+import Blog from "./pages/Blog/Blog";
 
 function App() {
    const { user } = useContext(AuthContext);
@@ -43,6 +44,10 @@ function App() {
             {
                path: "/",
                element: <Home></Home>,
+            },
+            {
+               path: "/blog",
+               element: <Blog></Blog>,
             },
             {
                path: "/category/:name",

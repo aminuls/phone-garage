@@ -60,7 +60,11 @@ const Header = ({ isDashboard }) => {
                </Menu.Items>
             </Transition>
          </Menu>
-
+         <li>
+            <Link to="/blog" className="rounded-md">
+               Blog
+            </Link>
+         </li>
          {user?.uid ? (
             <>
                <li>
