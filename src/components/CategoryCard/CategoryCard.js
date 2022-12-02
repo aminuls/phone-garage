@@ -1,24 +1,43 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import Modal from "../Modal/Modal";
 import { Dialog } from "@headlessui/react";
-// import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import { useForm } from "react-hook-form";
 
 const CategoryCard = ({ product }) => {
    // const date = new Date();
    /* <h2>Posted: {format(date, "PP")}</h2> */
    // database e store korar somoy use korte hobe
-
+   const { user } = useContext(AuthContext);
    const [wishlisted, setWishlisted] = useState(false);
    const [reported, setReported] = useState(false);
    const [open, setOpen] = useState(false);
    const submitButtonRef = useRef(null);
-   const handleSubmit = () => {
-      // code goes here
+   const {
+      register,
+      handleSubmit,
+      formState: { errors },
+      reset,
+   } = useForm();
+   const handleBooking = (data) => {
+      const bookedProduct = {
+         productId: product._id,
+         title: product.title,
+         price: data.price,
+         buyerName: data.name,
+         buyerEmail: data.email,
+         phone: data.phone,
+         location: data.location,
+         message: data.message,
+      };
+
+      console.log(bookedProduct);
+      reset();
       setOpen(false);
    };
    const modalBody = (
       <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-         <form onSubmit={handleSubmit}>
+         <form onSubmit={handleSubmit(handleBooking)}>
             <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                {/*  */}
                <div>
@@ -33,22 +52,32 @@ const CategoryCard = ({ product }) => {
                         <div className="card">
                            <div className="card-body p-0">
                               <div className="form-control">
-                                 <input type="text" placeholder="Name" className="input input-bordered rounded-md" />
+                                 <input type="text" {...register("name")} defaultValue={user?.displayName} readOnly placeholder="Name" className="input font-semibold bg-slate-200 input-bordered rounded-md" />
                               </div>
                               <div className="form-control">
-                                 <input type="email" placeholder="Email Address" className="input input-bordered rounded-md" />
+                                 <input type="email" {...register("email")} defaultValue={user?.email} readOnly placeholder="Email Address" className="input font-semibold bg-slate-200 input-bordered rounded-md" />
                               </div>
                               <div className="form-control">
-                                 <input type="text" placeholder="Price" className="input input-bordered rounded-md" />
+                                 <input type="text" {...register("price")} defaultValue={product?.resale_price} readOnly placeholder="Price" className="input bg-slate-200 font-semibold input-bordered rounded-md" />
                               </div>
                               <div className="form-control">
-                                 <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Phone" className="input input-bordered rounded-md" />
+                                 <input type="tel" {...register("phone", { required: "Phone number is Required" })} pattern="[0-9]{11}" placeholder="Phone" className="input font-semibold input-bordered rounded-md" />
+                                 {errors.phone && (
+                                    <p role="alert" className="text-error pt-1 font-semibold">
+                                       {errors.phone?.message}
+                                    </p>
+                                 )}
                               </div>
                               <div className="form-control">
-                                 <input type="text" placeholder="Meeting Location" className="input input-bordered rounded-md" />
+                                 <input type="text" {...register("location", { required: "Meeting location is Required" })} placeholder="Meeting Location" className="input font-semibold input-bordered rounded-md" />
+                                 {errors.location && (
+                                    <p role="alert" className="text-error pt-1 font-semibold">
+                                       {errors.location?.message}
+                                    </p>
+                                 )}
                               </div>
                               <div className="form-control">
-                                 <textarea rows="4" className="textarea textarea-bordered text-base rounded-md" placeholder="Type Your Message"></textarea>
+                                 <textarea rows="4" {...register("message")} className="textarea textarea-bordered text-base font-semibold rounded-md" placeholder="Type Your Message"></textarea>
                               </div>
                            </div>
                         </div>

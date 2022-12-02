@@ -29,8 +29,10 @@ function App() {
    const { user } = useContext(AuthContext);
    const [isAdmin, isAdminLoading] = useAdmin(user?.email);
    const [isSeller, isSellerLoading] = useSeller(user?.email);
-   if (isAdminLoading || isSellerLoading) {
-      return <Loading classes="lg:-ml-72 -mt-32"></Loading>;
+   if(user?.uid){
+      if (isAdminLoading || isSellerLoading) {
+         return <Loading></Loading>;
+      }
    }
    const router = createBrowserRouter([
       {

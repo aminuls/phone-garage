@@ -15,8 +15,8 @@ const Login = () => {
    const [loggedInUserEmail, setLoggedInUserEmail] = useState(null);
    const [token] = useToken(loggedInUserEmail);
    const location = useLocation();
-   const navigate = useNavigate();
    const from = location.state?.from?.pathname || "/";
+   const navigate = useNavigate();
 
    const handleLogin = (data) => {
       console.log(data);
@@ -26,6 +26,7 @@ const Login = () => {
             setLoginError(null);
             setLoggedInUserEmail(data.email);
             if (token) {
+               console.log(from);
                navigate(from, { replace: true });
             }
             console.log(user);

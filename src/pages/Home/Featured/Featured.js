@@ -75,7 +75,7 @@ const Featured = () => {
                slidesToSlide={1}
                swipeable
             >
-               {products.map((product) => (
+               {products?.map((product) => (
                   <CategoryCard key={product._id} product={product}></CategoryCard>
                ))}
             </Carousel>
